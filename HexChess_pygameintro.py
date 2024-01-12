@@ -25,8 +25,14 @@ while running:
     # center the board stuff
     board_window_x_diff = window_size_x - board_x
     center_board_x = board_window_x_diff / 2
-    
     screen.blit(background, (center_board_x,0))
+    
+    # Adding the blits for each piece
+    
+    
+    
+    
+    
     
     pygame.display.flip()
     
