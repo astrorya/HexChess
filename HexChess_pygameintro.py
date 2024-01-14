@@ -1,5 +1,5 @@
 import pygame
-import numpy
+import numpy as np
 
 pygame.init()
 window_size_x = 1280
@@ -27,6 +27,25 @@ while running:
     center_board_x = board_window_x_diff / 2
     screen.blit(background, (center_board_x,0))
     
+    # drawing the hexagons into the game rather than just a PNG
+    
+    # function for finding 6 vertices from the center
+    
+    def vertices(center):
+        """
+        Input "center" as pixel coordinates: [x, y]
+        """
+        side_length = 40/np.sin(np.pi/3) # pixels
+        v1 = (center[0]+(side_length), center[1])
+        v2 = (center[0]+(40/np.tan(np.pi/3)), center[1]-(40))
+        v3 = (center[0]-(40/np.tan(np.pi/3)), center[1]-(40))
+        v4 = (center[0]-(side_length), center[1])
+        v5 = (center[0]-(40/np.tan(np.pi/3)), center[1]+(40))
+        v6 = (center[0]+(40/np.tan(np.pi/3)), center[1]+(40))
+        return [v1, v2, v3, v4, v5, v6]
+    
+    # trying to make just one hexagon
+    pygame.draw.polygon(screen, (255,0,0), vertices([500, 448]))
     # Adding the blits for each piece
     
     
