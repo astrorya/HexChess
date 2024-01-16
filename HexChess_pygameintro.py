@@ -14,6 +14,9 @@ background = pygame.image.load('boards/hex-6x6x6.png').convert()
 board_x = 808
 board_y = 896
 
+# pieces load
+white_queen = pygame.image.load('pieces/white-queen.png').convert()
+
 
 while running:
     # poll for events
@@ -26,7 +29,7 @@ while running:
     board_window_x_diff = window_size_x - board_x
     center_board_x = board_window_x_diff / 2
     screen.blit(background, (center_board_x,0))
-    
+    colors = [(255, 255, 255), (206,206,206), (153,153,153)]
     # drawing the hexagons into the game rather than just a PNG
     
     # function for finding 6 vertices from the center
@@ -45,9 +48,15 @@ while running:
         return [v1, v2, v3, v4, v5, v6]
     
     # trying to make just one hexagon
-    pygame.draw.polygon(screen, (255,0,0), vertices([500, 448]))
+    pygame.draw.polygon(screen, (153,153,153), vertices([501, 447]))
     # Adding the blits for each piece
+    screen.blit(white_queen, (501,447))
     
+    
+    # making a function for moving pieces with mouse
+    
+    def move(self, left_down=False, left_up=True, right_down=False, right_up=True):
+            
     
     
     
